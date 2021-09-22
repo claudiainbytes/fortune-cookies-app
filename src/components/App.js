@@ -32,7 +32,7 @@ class Presentational extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div class="column">
+          <div className="column">
             <h2>Type in a new Message:</h2>
             <input
               value={this.state.input}
