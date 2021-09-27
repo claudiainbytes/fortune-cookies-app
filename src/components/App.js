@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.scss';
 import { Dots }  from 'react-preloaders2';
 import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../redux/reducers';
+import { mapStateToProps, mapDispatchToProps, fetchGetQuotes } from '../redux/reducers';
 
 // Change code below this line
 class Presentational extends React.Component {
@@ -10,7 +10,8 @@ class Presentational extends React.Component {
     super(props);
     this.state = {
       input: '',
-      messages: []
+      messages: [],
+      quotes: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
@@ -29,7 +30,11 @@ class Presentational extends React.Component {
       };
     });
   }
+  componentDidMount() {
+    this.props.fetchGetQuotes();
+  }
   render() {
+    const quotes = this.props.quotes;
     return (
       <div> 
         <div className="container">
@@ -48,6 +53,14 @@ class Presentational extends React.Component {
                   })
                 }
               </ul>
+              <ul>
+                {quotes.map( (quote, idx) => {
+                    return (
+                      <li key={idx}>{quote.text}</li>
+                    )
+                  })
+                }
+              </ul>
             </div>
           </div>
         </div>
@@ -59,6 +72,12 @@ class Presentational extends React.Component {
  
 // Change code above this line
  
-const App = connect(mapStateToProps, mapDispatchToProps)(Presentational);
+const App = connect((state) => ({ quotes: state.quotes.quotes }),
+                      { 
+                        mapStateToProps, 
+                        mapDispatchToProps, 
+                        fetchGetQuotes}
+                    )
+                    (Presentational);
 
 export default App;

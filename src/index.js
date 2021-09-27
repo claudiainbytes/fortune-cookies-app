@@ -4,10 +4,16 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import './index.scss';
-import { rootReducer } from './redux/reducers';
+import { combineReducers } from 'redux';
+import { messageReducer, quotesReducer } from './redux/reducers';
 
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+
+const rootReducer = combineReducers({
+  messageReducer,
+  quotes: quotesReducer
+});
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
  
