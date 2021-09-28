@@ -11,11 +11,18 @@ class Presentational extends React.Component {
     this.state = {
       input: '',
       messages: [],
-      quotes: []
-    }
+      quotes: [],
+      randomIndex: 0
+    };
+    this.ask = this.ask.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
   }
+  ask() {
+      this.setState({
+        randomIndex: Math.floor(Math.random() * 100)
+      });
+  }
   handleChange(event) {
     this.setState({
       input: event.target.value
@@ -35,9 +42,27 @@ class Presentational extends React.Component {
   }
   render() {
     const quotes = this.props.quotes;
+    const possibleAnswers = quotes;
+    
+    //let answer = possibleAnswers[55]; //possibleAnswers[this.state.randomIndex];
+    let answer = {'text': "texto", 'author': "none"};
+    if(typeof possibleAnswers[this.state.randomIndex] !== 'undefined'){
+      console.log("rta: ");
+      console.log(possibleAnswers[this.state.randomIndex]);
+      answer = possibleAnswers[this.state.randomIndex];
+    }
     return (
       <div> 
         <div className="container">
+          <div className="row">
+            <div className="column">
+              <br />
+              <button onClick={this.ask}>Break the cookie!</button>
+              <br />
+              <h3>Answer:</h3>
+              <p>{ answer.text }<br/> - { answer.author }</p>
+           </div>
+          </div>
           <div className="row">
             <div className="column">
               <h2>Type in a new Message:</h2>

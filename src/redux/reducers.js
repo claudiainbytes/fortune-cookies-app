@@ -10,7 +10,8 @@ const fetchGetQuotes = () => {
   return (dispatch) => {
       apiGetQuotes()
           .then(res => {
-              dispatch(getQuotes(res));
+              let reslimited = res.map(a => ({ sort: Math.random(), value: a })).sort((a, b) => a.sort - b.sort).map(a => a.value);
+              dispatch(getQuotes(reslimited.slice(0, 100)));
           })
           .catch(res => {
               console.log(res);
