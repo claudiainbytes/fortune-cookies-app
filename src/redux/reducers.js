@@ -21,27 +21,6 @@ const fetchGetQuotes = () => {
 
 
 // Redux:
-const ADD = 'ADD';
-
-const addMessage = (message) => {
-  return {
-    type: ADD,
-    message: message
-  }
-};
-
-const messageReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD:
-      return [
-        ...state,
-        action.message
-      ];
-    default:
-      return state;
-  }
-};
-
 const quotesReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_QUOTES:
@@ -53,18 +32,6 @@ const quotesReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const mapStateToProps = (state) => {
-  return {messages: state}
-};
  
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitNewMessage: (message) => {
-      dispatch(addMessage(message))
-    }
-  }
-};
- 
-export { messageReducer, quotesReducer, mapStateToProps, mapDispatchToProps, fetchGetQuotes };
+export { quotesReducer, fetchGetQuotes };
 
