@@ -1,0 +1,25 @@
+// https://dribbble.com/shots/6335641-Era-Dink/attachments
+.quote {
+    border: 1px solid orange;
+    border-radius: 20px;
+    padding: 25px;
+    background-color: orange;
+    color: white;
+    width: 100%;
+    @include bp-xs(max) {
+        border-radius: 20px;
+        padding: 25px;
+    }
+    @include bp-sm(max) {
+        border-radius: 22px;
+        padding: 30px;
+    }
+    p {
+        font-weight: bold;
+        font-size: 20px;
+        small {
+            font-weight: normal;
+            font-size: 17px;
+        }
+    }    
+}

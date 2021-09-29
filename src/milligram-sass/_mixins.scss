@@ -1,0 +1,76 @@
+// Breakpoints helpers
+
+// 320px
+@mixin bp-xs($size:min) {
+	@media screen and (#{$size}-width: 320px) {
+		@content;
+	}
+}
+
+// 480px
+@mixin bp-sm($size:min) {
+	@media screen and (#{$size}-width: 480px) {
+		@content;
+	}
+}
+
+// 768px
+@mixin bp-md($size:min) {
+	@media screen and (#{$size}-width: 768px) {
+		@content;
+	}
+}
+
+// 992px
+@mixin bp-lg($size:min) {
+	@media screen and (#{$size}-width: 992px) {
+		@content;
+	}
+}
+
+// 1200px
+@mixin bp-xl($size:min) {
+	@media screen and (#{$size}-width: 1200px) {
+		@content;
+	}
+}
+
+// Custom
+@mixin bp-custom($size, $px) {
+	@media screen and (#{$size}-width: $px) {
+		@content;
+	}
+}
+
+// Custom between in two bp
+@mixin bp-between($from_px, $to_px) {
+	@media (min-width: $from_px) and (max-width: $to_px) {
+		@content;
+	}
+}
+
+// Custom height
+@mixin bp-height($size, $px) {
+	@media screen and (#{$size}bp-height: $px) {
+		@content;
+	}
+}
+
+// Custom between height in two bp
+@mixin bp-between-height($from_px, $to_px) {
+	@media (min-height: $from_px) and (max-height: $to_px) {
+		@content;
+	}
+}
+
+// Background Gradient to 45deg
+@mixin gradient($from, $to, $degree) {
+	background: $from;
+	background: -moz-linear-gradient($degree, $from 0%, $to 100%);
+	background: -webkit-gradient(left bottom, right top, color-stop(0%, $from), color-stop(100%, $to));
+	background: -webkit-linear-gradient($degree, $from 0%, $to 100%);
+	background: -o-linear-gradient($degree, $from 0%, $to 100%);
+	background: -ms-linear-gradient($degree, $from 0%, $to 100%);
+	background: linear-gradient($degree, $from 0%, $to 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to', GradientType=1 );
+}
