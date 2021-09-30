@@ -107,62 +107,64 @@ $alignments: ("left": "flex-start", "center": "center", "right": "flex-end");
 }
 
 // Paddings and margins
+@for $i from 0 through 10 {
+    .m-#{($i * 5)} {
+        margin: $i * 5px;
+    }
+    .mx-#{($i * 5)} {
+        margin-top: 0;
+        margin-right: $i * 5px;
+        margin-bottom: 0;
+        margin-left: $i * 5px; 
+    }
+    .my-#{($i * 5)} {
+        margin-top: $i * 5px;
+        margin-right: 0;
+        margin-bottom: $i * 5px;
+        margin-left: 0;
+    }
+    .mt-#{($i * 5)} {
+        margin-top: $i * 5px;
+    }
+    .mr-#{($i * 5)} {
+        margin-right: $i * 5px;
+    }
+    .mb-#{($i * 5)} {
+        margin-bottom: $i * 5px;
+    }
+    .ml-#{($i * 5)} {
+        margin-left: $i * 5px;
+    }
+    .p-#{($i * 5)} {
+        padding: $i * 5px;
+    }
+    .px-#{($i * 5)} {
+        padding-top: 0;
+        padding-right: $i * 5px;
+        padding-bottom: 0;
+        padding-left: $i * 5px; 
+    }
+    .py-#{($i * 5)} {
+        padding-top: $i * 5px;
+        padding-right: 0;
+        padding-bottom: $i * 5px;
+        padding-left: 0;
+    }
+    .pt-#{($i * 5)} {
+        padding-top: $i * 5px;
+    }
+    .pr-#{($i * 5)} {
+        padding-right: $i * 5px;
+    }
+    .pb-#{($i * 5)} {
+        padding-bottom: $i * 5px;
+    }
+    .pl-#{($i * 5)} {
+        padding-left: $i * 5px;
+    }
+}    
 @each $breakpoint, $breakpoint-size in $breakpoints {
     @for $i from 0 through 10 {
-        .m-#{($i * 5)} {
-            margin: $i * 5px;
-        }
-        .mx-#{($i * 5)} {
-            margin-top: 0;
-            margin-right: $i * 5px;
-            margin-bottom: 0;
-            margin-left: $i * 5px; 
-        }
-        .my-#{($i * 5)} {
-            margin-top: $i * 5px;
-            margin-right: 0;
-            margin-bottom: $i * 5px;
-            margin-left: 0;
-        }
-        .mt-#{($i * 5)} {
-            margin-top: $i * 5px;
-        }
-        .mr-#{($i * 5)} {
-            margin-right: $i * 5px;
-        }
-        .mb-#{($i * 5)} {
-            margin-bottom: $i * 5px;
-        }
-        .ml-#{($i * 5)} {
-            margin-left: $i * 5px;
-        }
-        .p-#{($i * 5)} {
-            padding: $i * 5px;
-        }
-        .px-#{($i * 5)} {
-            padding-top: 0;
-            padding-right: $i * 5px;
-            padding-bottom: 0;
-            padding-left: $i * 5px; 
-        }
-        .py-#{($i * 5)} {
-            padding-top: $i * 5px;
-            padding-right: 0;
-            padding-bottom: $i * 5px;
-            padding-left: 0;
-        }
-        .pt-#{($i * 5)} {
-            padding-top: $i * 5px;
-        }
-        .pr-#{($i * 5)} {
-            padding-right: $i * 5px;
-        }
-        .pb-#{($i * 5)} {
-            padding-bottom: $i * 5px;
-        }
-        .pl-#{($i * 5)} {
-            padding-left: $i * 5px;
-        }
         @media screen and (min-width: #{$breakpoint-size}) {
             .m-#{$breakpoint}-#{($i * 5)} {
                 margin: $i * 5px;
@@ -220,6 +222,24 @@ $alignments: ("left": "flex-start", "center": "center", "right": "flex-end");
             }
         }
     }
+}
+
+// Text alignment
+// Paddings and margins
+$alignments: "left", "center", "right";
+@each $alignment in $alignments {
+    .text-#{$alignment} {
+        text-align: #{$alignment};
+    }
+}
+@each $breakpoint, $breakpoint-size in $breakpoints {
+        @media screen and (min-width: #{$breakpoint-size}) {
+            @each $alignment in $alignments {
+                .text-#{$breakpoint}-#{$alignment} {
+                    text-align: #{$alignment};
+                }
+            }
+        }
 }
 
 
