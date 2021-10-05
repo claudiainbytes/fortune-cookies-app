@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/fortune-cookies-app/static/css/main.a258a50f.chunk.css",
+    "main.js": "/fortune-cookies-app/static/js/main.327366ea.chunk.js",
+    "main.js.map": "/fortune-cookies-app/static/js/main.327366ea.chunk.js.map",
+    "runtime-main.js": "/fortune-cookies-app/static/js/runtime-main.324f34b7.js",
+    "runtime-main.js.map": "/fortune-cookies-app/static/js/runtime-main.324f34b7.js.map",
+    "static/js/2.6898b3ab.chunk.js": "/fortune-cookies-app/static/js/2.6898b3ab.chunk.js",
+    "static/js/2.6898b3ab.chunk.js.map": "/fortune-cookies-app/static/js/2.6898b3ab.chunk.js.map",
+    "static/js/3.783f2339.chunk.js": "/fortune-cookies-app/static/js/3.783f2339.chunk.js",
+    "static/js/3.783f2339.chunk.js.map": "/fortune-cookies-app/static/js/3.783f2339.chunk.js.map",
+    "index.html": "/fortune-cookies-app/index.html",
+    "static/css/main.a258a50f.chunk.css.map": "/fortune-cookies-app/static/css/main.a258a50f.chunk.css.map",
+    "static/js/2.6898b3ab.chunk.js.LICENSE.txt": "/fortune-cookies-app/static/js/2.6898b3ab.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.324f34b7.js",
+    "static/js/2.6898b3ab.chunk.js",
+    "static/css/main.a258a50f.chunk.css",
+    "static/js/main.327366ea.chunk.js"
+  ]
+}
