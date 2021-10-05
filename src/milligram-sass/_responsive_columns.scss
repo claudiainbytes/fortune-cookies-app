@@ -93,7 +93,16 @@ $breakpoints: ("xs": 320px, "sm": 480px, "md": 768px, "lg": 992px, "xl": 1200px)
     }
 }
 
-// Flexbox align elements
+.center-center-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-center-child {
+    flex: 1;
+}
+// Flexbox align elements horizontally
 $alignments: ("left": "flex-start", "center": "center", "right": "flex-end");
 @each $breakpoint, $breakpoint-size in $breakpoints {
     @media screen and (min-width: #{$breakpoint-size}) {
@@ -101,6 +110,18 @@ $alignments: ("left": "flex-start", "center": "center", "right": "flex-end");
             .align-#{$breakpoint}-#{$alignment} {
                 display: flex;
                 justify-content: #{$alignment-value};
+            }
+        }
+    }
+}
+// Flexbox align elements vertically
+$alignments: ("top": "flex-start", "center": "center", "bottom": "flex-end");
+@each $breakpoint, $breakpoint-size in $breakpoints {
+    @media screen and (min-width: #{$breakpoint-size}) {
+        @each $alignment, $alignment-value in $alignments {
+            .valign-#{$breakpoint}-#{$alignment} {
+                display: flex;
+                align-items: #{$alignment-value};
             }
         }
     }
